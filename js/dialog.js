@@ -14,7 +14,7 @@
                 
                 tableau.extensions.settings.saveAsync().then(function() {
                     tableau.extensions.ui.closeDialog(input);
-                    $('#inactive').hide();
+                    $('#placeholder').hide();
 
                 }, function(err) { 
                     console.log('Error on saveAsync: ' + err.message)

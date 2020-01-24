@@ -9,7 +9,7 @@
             const savedDbName = tableau.extensions.settings.get('dbName')
             
             if(savedDbName) {
-                $('#inactive').hide();
+                $('#placeholder').hide();
             } else {
                 configure()
             }
