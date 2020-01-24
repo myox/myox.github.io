@@ -20,7 +20,7 @@ $(document).ready(function() {
          * the popup extension.  In this example, the value '5' is passed, which will serve as the
          * default interval of refresh.
          */
-        tableau.extensions.ui.displayDialogAsync(popupUrl, defaultIntervalInMin, { height: 500, width: 500 }).then((closePayload) => {
+        tableau.extensions.ui.displayDialogAsync(popupUrl, { height: 500, width: 500 }).then((closePayload) => {
         // The promise is resolved when the dialog has been expectedly closed, meaning that
         // the popup extension has called tableau.extensions.ui.closeDialog.
             $('#inactive').hide();
