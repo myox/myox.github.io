@@ -14,6 +14,26 @@
             background-color: transparent;
         }
 
+         /* .modal-content {
+            height: 1000px;         
+        }  */
+        
+        .modal-body {
+            padding: 15px 15px;
+        }
+
+        .modal-body {
+            padding: 15px 15px;
+        }
+
+        .modal-header {
+            padding:10px 10px;
+        }
+
+        .modal-footer {
+            padding:10px 10px;
+        }
+
         body {
             background: none transparent;
         }
@@ -28,7 +48,7 @@
     <!-- <div id="inactive">Please configure the extension to proceed.</div> -->
 
     <div id="active" style="margin: 5px">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button id="initBtn" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-focus="false">
         Leave a comment
         </button>
 
@@ -38,22 +58,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h6 class="modal-title" id="exampleModalLabel">Leave a comment</h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-focus="false">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div id="bodyWrite" class="modal-body">
-                        <div class="form-group">
-                            <label for="bodyTxt">Thanks!</label>
+                        
+                            <!-- <label for="bodyTxt">Thanks!</label> -->
                             <textarea class="form-control" id="bodyTxt" rows="4"></textarea>
-                        </div>
+                        
                     </div>
-                    <div id="bodyPreview" class="modal-body" style="display:none">
-                        <p id ="previewTxt"></p>
-                    </div>
+                
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary">Edit</button>
-                        <button id="submitBtn" type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                        <span id="footerTxt">Thanks!</span>
+                        <button id="submitBtn" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Submit</button>
                     </div>
                 </div>
             </div>

@@ -27,6 +27,9 @@
             var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
             
             $.post(url,{data: text, data2: sheet, data3: dbName});
+
+            $("#bodyTxt").val('');
+            
         }); 
     }
 
@@ -53,5 +56,10 @@
             }
         });
     }
+
+    $('body').on('hidden.bs.modal', '.modal', function() {
+        $('.btn').blur();
+    }); 
+
 })();
 
