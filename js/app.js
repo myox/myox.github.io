@@ -39,7 +39,7 @@
 
         tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {   
             //hides placeholder when dbname is inputted in Tableau Desktop config
-            //$('#placeholder').hide();
+            $('#placeholder').hide();
         }).catch((error) => {
             // One expected error condition is when the popup is closed by the user (meaning the user
             // clicks the 'X' in the top right of the dialog).  This can be checked for like so:
