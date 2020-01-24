@@ -7,7 +7,7 @@
         tableau.extensions.initializeAsync({'configure': configure}).then(function() {
         
             configure();
-            
+
             // }, function(err) {
             //         alert("Error while Initializing: " + err.toString());
             //     });
@@ -21,8 +21,8 @@
 
         tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {
         
-            $('#inactive').hide();
-            //doesn't work because doesn't display when put live!
+            //---Removed because live extension will always initialise without configuration 
+            //$('#inactive').hide();
             // $('#active').css("display", "block")
 
             var dashboard = closePayload;
