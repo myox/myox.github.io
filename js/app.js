@@ -9,6 +9,7 @@
             const savedDbName = tableau.extensions.settings.get('dbName')
             
             if(savedDbName) {
+                $('#inactive').hide();
             } else {
                 configure()
             }
@@ -39,10 +40,6 @@
 
         tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {
         
-            //---Removed because live extension will always initialise without configuration 
-            //$('#inactive').hide();
-            // $('#active').css("display", "block")
-
         // configuration error 
         }).catch((error) => {
             // One expected error condition is when the popup is closed by the user (meaning the user
@@ -57,6 +54,7 @@
         });
     }
 
+    //blurs modal after clicks
     $('body').on('hidden.bs.modal', '.modal', function() {
         $('.btn').blur();
     }); 
