@@ -9,7 +9,6 @@
             const savedDbName = tableau.extensions.settings.get('dbName')
             
             if(savedDbName) {
-                $('#inactive').hide();
             } else {
                 configure()
             }
@@ -39,7 +38,7 @@
         const popupUrl = 'https://myox.github.io/dialog.html';
 
         tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {
-        
+             $('#inactive').hide();
         // configuration error 
         }).catch((error) => {
             // One expected error condition is when the popup is closed by the user (meaning the user
