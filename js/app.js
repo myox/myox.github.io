@@ -8,11 +8,12 @@
             
             const savedDbName = tableau.extensions.settings.get('dbName')
             
-            if(savedDbName) {
-            } else {
+            if(savedDbName == undefined || savedDbName =="" || savedDbName == null) {
                 configure()
+            } else {
+                $('#placeholder').hide();
             }
-            $('#placeholder').hide();
+            
             submit(savedDbName)
             }, function(err) {
                 alert("Error while Initializing: " + err.toString());    
