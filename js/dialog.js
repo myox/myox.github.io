@@ -8,9 +8,16 @@
             
             $("#configSubmit").click(function () {
                 
-                var dbName = $("#config-dbName").val();
+                var input = $("#config-dbName").val();
                 
-                tableau.extensions.ui.closeDialog(dbName);
+                tableau.extensions.settings.set('dbName', input);
+                
+                tableau.extensions.settings.saveAsync().then(function() {
+                    tableau.extensions.ui.closeDialog(input);
+
+                }, function(err) { 
+                    console.log('Error on saveAsync: ' + err.message)
+                });
             });
         });
     }); 

@@ -5,12 +5,17 @@
     $(document).ready(function() {
 
         tableau.extensions.initializeAsync({'configure': configure}).then(function() {
-        
-            configure();
+            
+            const savedDbName = tableau.extensions.settings.get('dbName')
+            
+            if(savedDbName) {
+            } else {
+                configure();
+            }
 
-            // }, function(err) {
-            //         alert("Error while Initializing: " + err.toString());
-            //     });
+            }, function(err) {
+                alert("Error while Initializing: " + err.toString());
+           
         });
     });
             
@@ -25,14 +30,13 @@
             //$('#inactive').hide();
             // $('#active').css("display", "block")
 
-            var dashboard = closePayload;
             var sheet = tableau.extensions.dashboardContent.dashboard.name;
         
             $("#submitBtn").click(function(){
                 var text = $("#bodyTxt").val();
                 var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
 
-                $.post(url,{data: text, data2: sheet, data3: dashboard});
+                $.post(url,{data: text, data2: sheet, data3: savedDbName});
 
             }); 
         
