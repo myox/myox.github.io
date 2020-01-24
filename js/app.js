@@ -20,7 +20,8 @@
         tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {
         
             $('#inactive').hide();
-            $('#active').css("display", "block")
+            //doesn't work because doesn't display when put live!
+            // $('#active').css("display", "block")
 
             var dashboard = closePayload;
             var sheet = tableau.extensions.dashboardContent.dashboard.name;
