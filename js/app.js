@@ -10,15 +10,25 @@
             
             if(savedDbName) {
             } else {
-                configure();
+                configure()
             }
 
+            submit()
+
             }, function(err) {
-                alert("Error while Initializing: " + err.toString());
-           
+                alert("Error while Initializing: " + err.toString());    
         });
     });
-            
+    
+    function submit() {
+        $("#submitBtn").click(function(){
+            var sheet = tableau.extensions.dashboardContent.dashboard.name;
+            var text = $("#bodyTxt").val();
+            var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
+
+            $.post(url,{data: text, data2: sheet, data3: savedDbName});
+        }); 
+    }
 
     function configure () {
 
@@ -30,16 +40,6 @@
             //$('#inactive').hide();
             // $('#active').css("display", "block")
 
-            var sheet = tableau.extensions.dashboardContent.dashboard.name;
-        
-            $("#submitBtn").click(function(){
-                var text = $("#bodyTxt").val();
-                var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
-
-                $.post(url,{data: text, data2: sheet, data3: savedDbName});
-
-            }); 
-        
         // configuration error 
         }).catch((error) => {
             // One expected error condition is when the popup is closed by the user (meaning the user
