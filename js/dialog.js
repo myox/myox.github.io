@@ -11,9 +11,9 @@
             
             $("#configSubmit").click(function () {
                 
-                //var dbName = $("#config-dbName").val();
+                var dbName = $("#config-dbName").val();
                 
-                tableau.extensions.ui.closeDialog('test');
+                tableau.extensions.ui.closeDialog(dbName);
             });
         });
     }); 
