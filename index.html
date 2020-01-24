@@ -25,9 +25,9 @@
 
 <body>
 
-    <div id="inactive">Please start by configuring the extension!</div>
+    <div id="inactive">Please configure the extension to proceed.</div>
 
-    <div id="active" style="margin: 5px">
+    <div id="active" style="margin: 5px; display: none">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Leave a comment
         </button>
@@ -52,8 +52,8 @@
                         <p id ="previewTxt"></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Edit</button>
-                        <button id="submitBtn" type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary">Edit</button>
+                        <button id="submitBtn" type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
                     </div>
                 </div>
             </div>

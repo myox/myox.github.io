@@ -20,7 +20,7 @@
         tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {
         
             $('#inactive').hide();
-            $('#active').show();
+            $('#active').css("display", "block")
 
             var dashboard = closePayload;
             var sheet = tableau.extensions.dashboardContent.dashboard.name;
@@ -30,7 +30,7 @@
                 var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
 
                 $.post(url,{data: text, data2: sheet, data3: dashboard});
-                
+
             }); 
         
         // configuration error 
