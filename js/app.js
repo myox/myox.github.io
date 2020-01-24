@@ -6,6 +6,8 @@
 
         tableau.extensions.initializeAsync({'configure': configure}).then(function() {
         
+            configure();
+            
             // }, function(err) {
             //         alert("Error while Initializing: " + err.toString());
             //     });
