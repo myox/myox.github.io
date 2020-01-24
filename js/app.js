@@ -17,7 +17,7 @@
 
         const popupUrl = 'https://myox.github.io/dialog.html';
 
-        tableau.extensions.ui.displayDialogAsync(popupUrl, { height: 500, width: 500 }).then((closePayload) => {
+        tableau.extensions.ui.displayDialogAsync(popupUrl).then((closePayload) => {
         
             $('#inactive').hide();
             $('#active').show();
