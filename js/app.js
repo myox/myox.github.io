@@ -13,20 +13,20 @@
                 configure()
             }
 
-            submit()
+            submit(savedDbName)
 
             }, function(err) {
                 alert("Error while Initializing: " + err.toString());    
         });
     });
     
-    function submit() {
+    function submit(dbName) {
         $("#submitBtn").click(function(){
             var sheet = tableau.extensions.dashboardContent.dashboard.name;
             var text = $("#bodyTxt").val();
             var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
-
-            $.post(url,{data: text, data2: sheet, data3: savedDbName});
+            
+            $.post(url,{data: text, data2: sheet, data3: dbName});
         }); 
     }
 
