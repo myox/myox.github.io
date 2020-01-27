@@ -15,6 +15,35 @@
             }
             
             submit(savedDbName)
+
+            let extensionName = ["Panel"]; 
+
+            tableau.extensions.dashboardContent.dashboard.objects.forEach(function(object){
+                if(extensionName.includes(object.name)){
+                extensionVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide;
+                }else if(wikiZone.includes(object.name)){
+                wikiVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide;
+                extensionVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide;
+                }
+            });  
+
+            tableau.extensions.dashboardContent.dashboard.setZoneVisibilityAsync(extensionVisibilityObject).then(() => {
+                console.log("done");
+            }).then(()=>{
+                worksheet = tableau.extensions.dashboardContent.dashboard.worksheets.find(ws => ws.name === "State Map");
+                worksheet.addEventListener(tableau.TableauEventType.MarkSelectionChanged, selection)
+            })
+
+            function selection(data) {
+                data.getMarksAsync().then(marks => {
+                    if (marks.data[0].data.length === 1) {
+                    toggleWikiVisibility(tableau.ZoneVisibilityType.Show);
+                    } else {
+                    toggleWikiVisibility(tableau.ZoneVisibilityType.Hide); 
+                    }
+                })
+            }
+
             }, function(err) {
                 alert("Error while Initializing: " + err.toString());    
         });

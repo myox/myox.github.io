@@ -33,7 +33,7 @@
         .modal-footer {
             padding:10px 10px;
         }
-
+        
         body {
             background: none transparent;
         }
@@ -46,33 +46,31 @@
 <body>
 
     <div id="active" style="margin: 5px">
-
-        <div id="placeholder" style="font-size: 14px; padding: 5px 0 px">Please configure the extension before publishing the dashboard.</div>  
+<!-- 
+        <div id="placeholder" style="font-size: 14px; padding: 5px 0 px">Please configure the extension before publishing the dashboard.</div> 
         <button id="initBtn" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-focus="false">
         Leave a comment
-        </button>
+        </button> -->
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">Leave a comment</h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-focus="false">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div id="bodyWrite" class="modal-body">
-                        
-                            <!-- <label for="bodyTxt">Thanks!</label> -->
-                            <textarea class="form-control" id="bodyTxt" rows="4"></textarea>
-                        
-                    </div>
+        <div class="card">
+            <div class="card-header h6">
+                Please leave a comment
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" style="padding: 0px">&times;</span>
+            </div>
+            <div class="card-body">
+                <!-- <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                <textarea class="form-control" id="bodyTxt" rows="4" style="margin-bottom: 15px"></textarea>
                 
-                    <div class="modal-footer">
-                        <span id="footerTxt">Thanks!</span>
-                        <button id="submitBtn" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Submit</button>
-                    </div>
+                    <!-- <span id="footerTxt">Thanks!</span> -->
+                    <button id="submitBtn" type="button" class="btn btn-primary btn-sm">Submit</button>
+                
+            </div>
+        </div>
+                
+                    
                 </div>
             </div>
         </div>
