@@ -14,6 +14,8 @@
                 $('#placeholder').hide();
             }
             
+            initialise()
+
             //submit(savedDbName)
 
 
