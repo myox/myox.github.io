@@ -14,54 +14,75 @@
                 $('#placeholder').hide();
             }
             
-            submit(savedDbName)
+            //submit(savedDbName)
 
-            let extensionName = ["Panel"]; 
 
-            tableau.extensions.dashboardContent.dashboard.objects.forEach(function(object){
-                if(extensionName.includes(object.name)){
-                extensionVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide;
-                }else if(wikiZone.includes(object.name)){
-                wikiVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide;
-                extensionVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide;
-                }
-            });  
+            //  tableau.extensions.dashboardContent.dashboard.objects.forEach(function(object){
+            //     if(object.id == parseInt(extensionZoneId, 10)) {
+            //         extensionVisibilityObject[object.id] = tableau.ZoneVisibilityType.Hide
+            //     }
+            // });  
 
-            tableau.extensions.dashboardContent.dashboard.setZoneVisibilityAsync(extensionVisibilityObject).then(() => {
-                console.log("done");
-            }).then(()=>{
-                worksheet = tableau.extensions.dashboardContent.dashboard.worksheets.find(ws => ws.name === "State Map");
-                worksheet.addEventListener(tableau.TableauEventType.MarkSelectionChanged, selection)
-            })
+            // tableau.extensions.dashboardContent.dashboard.setZoneVisibilityAsync(extensionVisibilityObject).then(() => {
+            //     console.log("done");
+            // }).then(()=>{
+            //     worksheet = tableau.extensions.dashboardContent.dashboard.worksheets.find(ws => ws.name === "State Map");
+            //     worksheet.addEventListener(tableau.TableauEventType.MarkSelectionChanged, selection)
+            // })
 
-            function selection(data) {
-                data.getMarksAsync().then(marks => {
-                    if (marks.data[0].data.length === 1) {
-                    toggleWikiVisibility(tableau.ZoneVisibilityType.Show);
-                    } else {
-                    toggleWikiVisibility(tableau.ZoneVisibilityType.Hide); 
-                    }
-                })
-            }
+            // function selection(data) {
+            //     data.getMarksAsync().then(marks => {
+            //         if (marks.data[0].data.length === 1) {
+            //         toggleWikiVisibility(tableau.ZoneVisibilityType.Show);
+            //         } else {
+            //         toggleWikiVisibility(tableau.ZoneVisibilityType.Hide); 
+            //         }
+            //     })
+            // }
 
             }, function(err) {
                 alert("Error while Initializing: " + err.toString());    
         });
     });
     
-    function submit(dbName) {
-        $("#submitBtn").click(function(){
-            var sheet = tableau.extensions.dashboardContent.dashboard.name;
-            var text = $("#bodyTxt").val();
-            var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
+    // function submit(dbName) {
+    //     $("#submitBtn").click(function(){
+    //         var sheet = tableau.extensions.dashboardContent.dashboard.name;
+    //         var text = $("#bodyTxt").val();
+    //         var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
             
-            $.post(url,{data: text, data2: sheet, data3: dbName});
+    //         $.post(url,{data: text, data2: sheet, data3: dbName});
 
-            $("#bodyTxt").val('');
+    //         $("#bodyTxt").val('');
 
+            
+            
+    //     }); 
+    // }
+
+    function initialise() {
+        const extensionZoneId = parseInt(window.name.substring(window.name.lastIndexOf("_")+1), 10);
+        const extensionVisibilityObject = {}
+
+        $("#submitBtn").click(function(){
+            //var sheet = tableau.extensions.dashboardContent.dashboard.name;
+            //var text = $("#bodyTxt").val();
+            // var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
+            
+            //$.post(url,{data: text, data2: sheet, data3: dbName});
+
+            //$("#bodyTxt").val('');
+            hide(extensionZoneId, extensionVisibilityObject)
             
             
         }); 
+    }
+
+    function hide(id, map) {
+        map[id] = tableau.ZoneVisibilityType.Hide
+        tableau.extensions.dashboardContent.dashboard.setZoneVisibilityAsync(map).then(() => {
+            console.log("hidden");
+        });
     }
 
     function configure () {
