@@ -63,21 +63,25 @@
     // }
 
     function initialise() {
+        
         const extensionZoneId = parseInt(window.name.substring(window.name.lastIndexOf("_")+1), 10);
-        const extensionVisibilityObject = {}
+        
+        console.log(extensionZoneId);
+        
+        // const extensionVisibilityObject = {}
 
-        $("#submitBtn").click(function(){
-            //var sheet = tableau.extensions.dashboardContent.dashboard.name;
-            //var text = $("#bodyTxt").val();
-            // var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
+        // $("#submitBtn").click(function(){
+        //     //var sheet = tableau.extensions.dashboardContent.dashboard.name;
+        //     //var text = $("#bodyTxt").val();
+        //     // var url = 'https://script.google.com/a/my.shu.ac.uk/macros/s/AKfycbxWglAuwM3dkF2rFDc4zDXcHUuXyn3EgtVvaar1kSnKG4qalkGf/exec';
             
-            //$.post(url,{data: text, data2: sheet, data3: dbName});
+        //     //$.post(url,{data: text, data2: sheet, data3: dbName});
 
-            //$("#bodyTxt").val('');
-            hide(extensionZoneId, extensionVisibilityObject)
+        //     //$("#bodyTxt").val('');
+        //     hide(extensionZoneId, extensionVisibilityObject)
             
             
-        }); 
+        // }); 
     }
 
     function hide(id, map) {
