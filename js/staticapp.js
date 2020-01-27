@@ -64,7 +64,7 @@
 
     function initialise() {
         
-        const extensionZoneId = window.name //.substring(window.name.lastIndexOf("_")+1);
+        const extensionZoneId = window.name.substring(window.name.lastIndexOf("_"));
         
         console.log(extensionZoneId);
         
